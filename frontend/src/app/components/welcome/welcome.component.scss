@@ -240,6 +240,20 @@
     overflow: clip;
 }
 
+// Video 1
+.video-container#vid1{
+    top: 45%;
+    left: 64.5%;
+    right: 35.5%;
+}
+
+.video#vid1 {
+    width: 68%;
+    height: 100%;
+}
+
+
+// Video 2
 .video-container#vid2{
     top: 33.5%;
     left: 68%;
@@ -260,6 +274,19 @@
 }
 
 @media screen and (max-width: 960px) {
+
+    .video-container#vid1{
+        top: 46.5%;
+        left: 50%;
+        right: 50%;
+    }
+    
+    .video#vid1 {
+        width: 69%;
+        height: 100%;
+    }
+
+    
     .video-container#vid2{
         left: 49%;
         right: 51%;
@@ -271,6 +298,11 @@
 }
 
 @media screen and (max-width: 645px) {
+    
+    .video#vid1 {
+        width: 67%;
+    }
+
     .video-container#vid2{
         left: 51%;
         right: 49%;
@@ -289,6 +321,18 @@
 }
 
 @media screen and (max-width: 380px) {
+    .video-container#vid1{
+        top: 46.5%;
+        left: 50.5%;
+        right: 49.5%;
+    }
+    
+    .video#vid1 {
+        width: 65.5%;
+        height: 100%;
+    }
+
+    
     .video-container#vid2{
         left: 51%;
         right: 49%;
