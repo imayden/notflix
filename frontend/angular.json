@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "notflix-site": {
+    "notflix": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/notflix-site",
+            "outputPath": "dist/notflix",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "notflix-site:build:production"
+              "buildTarget": "notflix:build:production"
             },
             "development": {
-              "buildTarget": "notflix-site:build:development"
+              "buildTarget": "notflix:build:development"
             }
           },
           "defaultConfiguration": "development"
