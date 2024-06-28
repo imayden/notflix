@@ -1,5 +1,5 @@
 .app-heading{
-    font-family: "Gabarito", sans-serif;
+    font-family: "Netflix Sans", sans-serif;
     font-optical-sizing: auto;
     width: 100%;
     color: #fff;
@@ -34,6 +34,12 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .nav {
+        padding-inline: 0.5rem;
+    }
+}
+
 .logo-img {
     height: 4rem;
     width: auto;
@@ -42,7 +48,7 @@
 .btns {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:end;
     align-items: center;
 }
 
@@ -57,7 +63,7 @@
     padding-inline: 1rem;
     padding-block: 0.5rem;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-inline: 1rem;
 }
 
@@ -76,4 +82,19 @@
     left: 0;
     width: 100%;
     z-index: -1; 
+}
+
+
+@media screen and (max-width: 600px) {
+    .nav {
+        padding-inline: 0.5rem;
+    }
+
+    .btn#signin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding-inline: 0.5rem;
+    }
 }

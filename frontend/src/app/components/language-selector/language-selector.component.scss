@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-family: "Gabarito", sans-serif;
+    font-family: "Netflix Sans", sans-serif;
     font-optical-sizing: auto;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.25rem;
@@ -30,4 +30,28 @@
     padding: 0;
     color: white;
     font-size: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+    }
+    .lang-selector-container{
+        padding-inline: 0.15rem;
+        padding-block: 0.5rem;
+        width: 50%;
+        margin-inline: 0;
+        
+    }
+    .icon{
+        height: 1rem;
+    }
+    .lang-selector{
+        width: 35%;
+        text-overflow: hidden;
+    }
+    
 }

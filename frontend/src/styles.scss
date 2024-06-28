@@ -2,6 +2,32 @@
 .html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Gabarito', sans-serif;
+  // font-family: 'Netflix Sans', sans-serif;
+  font-family: 'Netflix Sans', sans-serif;
   background-color: rgba(0,0,0,1);
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('assets/fonts/Netflix-Sans-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('assets/fonts/Netflix-Sans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('assets/fonts/Netflix-Sans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Netflix Sans', sans-serif;
 }
