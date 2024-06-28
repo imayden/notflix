@@ -1,0 +1,44 @@
+.landing#register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing#input {
+    text-align: start;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    border: 1px solid rgba(225, 225, 225, 0.5);
+    font-weight: 400;
+    width: 20rem;
+    margin: 0.5rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+}
+
+.landing#btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    height: 100%;
+    margin: 0.5rem;
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border: 1px solid rgba(229, 9, 20, 1);
+    color: white;
+    background-color: rgba(229, 9, 20, 1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.landing#btn:hover {
+    background-color: rgb(202, 8, 17);
+    border: 1px solid rgb(202, 8, 17);
+}

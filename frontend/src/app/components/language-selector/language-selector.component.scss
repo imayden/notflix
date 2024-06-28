@@ -1,0 +1,33 @@
+.lang-selector-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    border: 1px solid rgba(225, 225, 225, 0.5);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.lang-selector-container:focus{
+    border: 2px solid rgba(225, 225, 225, 1);
+}
+
+
+.icon{
+    height: 0.8rem;
+    width: auto;
+    padding-right: 0.2rem;
+}
+
+.lang-selector{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+}

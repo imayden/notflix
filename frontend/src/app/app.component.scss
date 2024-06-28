@@ -1,10 +1,79 @@
-.app-body {
+.app-heading{
     font-family: "Gabarito", sans-serif;
     font-optical-sizing: auto;
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .nav {
+    padding-block: 1.5rem;
+    padding-inline: 3rem;
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
+    max-width: 1980px;
+    // background-color: #555;
+    // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    align-items: center;
+    z-index: 10;
+}
+
+@media screen and (max-width: 960px) {
+    .nav {
+        padding-inline: 2rem;
+    }
+}
+
+.logo-img {
+    height: 4rem;
+    width: auto;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.25rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-inline: 1rem;
+}
+
+.btn#signin {
+    color: white;
+    background-color: rgba(229, 9, 20, 1);
+}
+
+.btn#signin:hover {
+    background-color: rgb(202, 8, 17);
+}
+
+.welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; 
 }

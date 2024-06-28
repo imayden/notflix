@@ -1,0 +1,187 @@
+.landing-cover {
+    color: white;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/335ddde7-3955-499c-b4cc-ca2eb7e1ae71/98533523-112a-488c-a711-d0517920cdb5/US-en-20240624-POP_SIGNUP_TWO_WEEKS-perspective_WEB_31571788-f022-43e9-904f-9ad7e6d57bde_medium.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.spacer {
+    height: 6rem;
+}
+
+.landing-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.landing-cover>* {
+    position: relative;
+    z-index: 2;
+}
+
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 6rem;
+    padding-inline: 1rem;
+}
+
+.landing {
+    text-align: center;
+    color: white;
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    margin-block: 1rem;
+}
+
+.content-block#title,
+.landing#title {
+    font-size: 3.25rem;
+    font-weight: 800;
+}
+
+.content-block#sub-title,
+.landing#sub-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.landing#p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+@media screen and (max-width: 960px) {
+
+    .landing-content {
+        padding-block: 4rem;
+    }
+
+    .landing#title {
+        font-size: 2.25rem;
+    }
+
+    .landing#sub-title {
+        font-size: 1.25rem;
+    }
+
+    .landing#p {
+        font-size: 1rem;
+    }
+
+    .landing#input {
+        width: 15rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .landing#register {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .landing#input,
+    .landing#btn {
+        width: 15rem;
+    }
+}
+
+
+// Banner
+
+.banner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(51.39% 511.66% at 47.68% -217.91%, #ff9900 0%, #e50914 17.27%, #0e1b4f 79.44%, #000413 95%, #000 100%);
+    box-shadow: 0px -8px 25px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    margin-inline: 5rem;
+    color: white;
+}
+
+.banner#content {
+    margin-left: 1rem;
+}
+
+.banner#title {
+    margin-block: 0;
+    font-size: 1.5rem;
+}
+
+.banner#p {
+    margin-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.banner#link,
+.link {
+    margin-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(94, 160, 231);
+    margin-right: 0.5rem;
+}
+
+// Content Block
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 4rem;
+    padding-inline: 2rem;
+}
+
+.content-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-width: 1440px;
+    justify-self: center;
+    // background-color: #3ff;
+}
+
+.content-block#media,
+.content-block#text {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+    width: 50%;
+    margin-inline: 1rem;
+}
+
+.content-block#img {
+    width: 100%;
+    margin-inline: 1rem;
+}
+
+
+.content-block#title,
+.content-block#sub-title {
+    margin-block: 1rem;
+}
+
+.block-spacer{
+    width: 100%;
+    height: 0.5rem;
+    background-color: #222;
+}
