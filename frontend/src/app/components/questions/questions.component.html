@@ -1,0 +1,13 @@
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq" *ngFor="let item of faqs">
+      <div class="question" (click)="toggleAnswer(item)">
+        <h2>{{ item.question }}</h2>
+        <span class="toggle-icon">{{ item.open ? '-' : '+' }}</span>
+      </div>
+      <div class="answer" [ngClass]="{'open': item.open}">
+        <p *ngFor="let answer of item.answers">{{ answer }}</p>
+      </div>
+    </div>
+  </div>
+  
