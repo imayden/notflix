@@ -10,6 +10,11 @@ import { QuestionsComponent } from './components/questions/questions.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SignupChoosePlanComponent } from './components/signup-choose-plan/signup-choose-plan.component';
+import { SignupChooserightPlanComponent } from './components/signup-chooseright-plan/signup-chooseright-plan.component';
+import { SignupFinishSetupComponent } from './components/signup-finish-setup/signup-finish-setup.component';
+import { SignupCreateAccountComponent } from './components/signup-create-account/signup-create-account.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { SigninComponent } from './components/signin/signin.component';
     WelcomeComponent,
     GetStartedComponent,
     QuestionsComponent,
-    SigninComponent
+    SigninComponent,
+    SignupComponent,
+    SignupChoosePlanComponent,
+    SignupChooserightPlanComponent,
+    SignupFinishSetupComponent,
+    SignupCreateAccountComponent
   ],
   imports: [
     BrowserModule,

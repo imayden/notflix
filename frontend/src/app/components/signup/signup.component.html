@@ -1,0 +1,133 @@
+<!------------------------------------------------------ *
+    Heading 
+* ------------------------------------------------------>
+<div class="body">
+    <div class="app-heading">
+        <div class="nav-container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo"><a href="#">
+                            <img class="logo-img"
+                                src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+                                alt="logo" /></a>
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <!-- <app-language-selector></app-language-selector> -->
+                    <a class="btn" id="signin" routerLink="/signin" routerLinkActive="active">Sign In</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="divider">
+
+    </div>
+
+    <!------------------------------------------------------ *
+    Components 
+    * ------------------------------------------------------>
+    <div class="signup-container">
+        <ng-container [ngSwitch]="currentStep">
+            <app-signup-choose-plan *ngSwitchCase="0"></app-signup-choose-plan>
+            <app-signup-chooseright-plan *ngSwitchCase="1"></app-signup-chooseright-plan>
+            <app-signup-finish-setup *ngSwitchCase="2"></app-signup-finish-setup>
+            <app-signup-create-account *ngSwitchCase="3"></app-signup-create-account>
+        </ng-container>
+        <div class="navigation-buttons">
+            <button (click)="prevStep()" [disabled]="currentStep === 0">Previous</button>
+            <button (click)="nextStep()" [disabled]="currentStep === steps.length - 1">Next</button>
+        </div>
+    </div>
+
+
+    <!------------------------------------------------------ *
+    Footer 
+    * ------------------------------------------------------>
+    <div class="footer-bg">
+
+        <div class="content">
+            <div class="tel">
+                Questions?
+                <a class="footerlink" href="" target="_blank">1-844-505-2993</a>
+            </div>
+            <footer class="footer">
+
+                <ul class="footerlist">
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                </ul>
+
+                <ul class="footerlist">
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                </ul>
+
+                <ul class="footerlist">
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                </ul>
+
+                <ul class="footerlist">
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQFAQ</a>
+                    </li>
+                    <li class="list-node">
+                        <a class="footerlink" href="" target="_blank">FAQ</a>
+                    </li>
+                </ul>
+            </footer>
+            <div class="lang-selector">
+                <app-language-selector></app-language-selector>
+            </div>
+        </div>
+    </div>
+</div>

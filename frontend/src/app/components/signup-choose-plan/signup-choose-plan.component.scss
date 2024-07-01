@@ -1,0 +1,68 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 340px;
+}
+
+.divider {
+    height: 1rem;
+    margin: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+.title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-block: 0.5rem;
+}
+
+.planStepLogo {
+    background-size: 60px;
+    height: 60px;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+    unicode-bidi: isolate;
+}
+
+.checkmark-group--row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+}
+
+.checkmark-group--icon {
+    color: #E50914;
+    height: 1.8rem;
+    width: auto;
+
+}
+
+.checkmark-group {
+    margin-bottom: 20px;
+}
+
+
+.checkmark-group--text{
+    color: #333;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    width: 15rem;
+}
