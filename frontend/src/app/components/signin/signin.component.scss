@@ -1,0 +1,295 @@
+.landing-cover {
+    color: white;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/335ddde7-3955-499c-b4cc-ca2eb7e1ae71/98533523-112a-488c-a711-d0517920cdb5/US-en-20240624-POP_SIGNUP_TWO_WEEKS-perspective_WEB_31571788-f022-43e9-904f-9ad7e6d57bde_medium.jpg');
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.spacer {
+    height: 6rem;
+}
+
+.landing-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.landing-cover>* {
+    position: relative;
+    z-index: 2;
+}
+
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 6rem;
+    padding-inline: 1rem;
+}
+
+.landing {
+    text-align: center;
+    color: white;
+    font-family: "Netflix Sans", sans-serif;
+    font-optical-sizing: auto;
+    margin-block: 1rem;
+}
+
+.content-block#title,
+.landing#title {
+    font-size: 3.25rem;
+    font-weight: 800;
+}
+
+.content-block#sub-title,
+.landing#sub-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.landing#p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+@media screen and (max-width: 960px) {
+
+    .landing-content {
+        padding-block: 4rem;
+    }
+
+    .content-block#title,
+    .landing#title {
+        font-size: 2.25rem;
+    }
+
+    .content-block#sub-title,
+    .landing#sub-title {
+        font-size: 1.25rem;
+    }
+
+    .landing#p {
+        font-size: 1rem;
+    }
+
+    .landing#input {
+        width: 15rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .landing#register {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .landing#input,
+    .landing#btn {
+        width: 15rem;
+    }
+}
+
+/* ------------------------------------------------------
+SignIn Window
+------------------------------------------------------ */
+
+.signin-window {
+    padding-inline: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    max-width: 360px;
+
+}
+
+// Content Block
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 4rem;
+    padding-inline: 2rem;
+    color:white;
+    margin-inline: 1rem;
+}
+
+.title,
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgba(225, 225, 225, 0.5);
+    font-weight: 400;
+}
+
+.landing#register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing#input {
+    text-align: start;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    border: 1px solid rgba(225, 225, 225, 0.5);
+    font-weight: 400;
+    width: 20rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    height: 100%;
+    border: none;
+    margin-block:0.25rem;
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-weight: 400;
+    color: white;
+}
+
+.btn#signin{
+    background-color: rgba(229, 9, 20, 1);
+}
+
+.btn#code{
+    background-color: rgba(225, 225, 225, 0.25);
+}
+
+.btn#signin:hover {
+    background-color: rgb(202, 8, 17);
+}
+.btn#code:hover {
+    background-color: rgba(225, 225, 225, 0.15);
+}
+
+.findpass{
+    color:white;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.findpass:hover{
+    color: rgba(225, 225, 225, 0.75);
+    text-decoration: underline;
+}
+
+.checkbox{
+    margin-block: 1rem;
+}
+.checkbox#label {
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+.h2title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+
+.signup {
+    margin-left: 0.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.newuser, .sec-footer {
+    color:rgba(225, 225, 225, 0.5);
+}
+
+.signup:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------
+Footer 
+------------------------------------------------------ */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    color: white;
+    flex-wrap: wrap;
+    text-align: left;
+    width: 100%;
+    max-width: 1440px;
+}
+
+
+.list-node{
+    list-style-type: none;
+    padding-block: 0.5rem;
+}
+  
+.footerlink,
+.tel {
+    color: rgba(225, 225, 225, 0.75);
+}
+
+.tel,
+.lang-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+    width: 100%;
+    max-width: 1440px;
+    padding-block: 0.5rem;
+}
+
+.footerlist {
+    width: 25%;
+    padding-inline-start: 0;
+}

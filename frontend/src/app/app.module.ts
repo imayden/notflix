@@ -9,6 +9,7 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
 import { QuestionsComponent } from './components/questions/questions.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SigninComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LanguageSelectorComponent,
     WelcomeComponent,
     GetStartedComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
