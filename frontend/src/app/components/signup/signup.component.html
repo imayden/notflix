@@ -35,8 +35,9 @@
             <app-signup-create-account *ngSwitchCase="3"></app-signup-create-account>
         </ng-container>
         <div class="navigation-buttons">
-            <button *ngIf="currentStep > 0" class="btn" id="prev" (click)="prevStep()">Previous</button>
-            <button *ngIf="currentStep < steps.length - 1" class="btn" id="next" (click)="nextStep()">Next</button>        
+            <a *ngIf="currentStep > 0" class="btn" id="prev" (click)="prevStep()">Previous</a>
+            <a *ngIf="currentStep < steps.length - 1" class="btn" id="next" (click)="nextStep()" style="width: 340px">Next</a>
+            <a *ngIf="currentStep == steps.length - 1" class="btn" id="next" href='/signin' target="_blank" style="width: 418px">Next</a>          
         </div>
     </div>
 
