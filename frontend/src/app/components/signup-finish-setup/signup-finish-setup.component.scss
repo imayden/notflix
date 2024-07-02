@@ -1,0 +1,41 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 340px;
+}
+
+.divider {
+    height: 1rem;
+    margin: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+.title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-block: 0.5rem;
+}
+
+.planStepLogo {
+    background-size: 60px;
+    width: 300px;
+    margin: 2rem;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 340px;
+    text-align: center;
+    color:#333;
+}
+
+.p {
+    font-size: 1.2rem;
+}
