@@ -20,8 +20,8 @@
             </nav>
         </div>
     </div>
-    <div class="divider">
-
+    <div class="divider" style="opacity: 0.25;">
+        <hr/>
     </div>
 
     <!------------------------------------------------------ *
@@ -35,8 +35,8 @@
             <app-signup-create-account *ngSwitchCase="3"></app-signup-create-account>
         </ng-container>
         <div class="navigation-buttons">
-            <button (click)="prevStep()" [disabled]="currentStep === 0">Previous</button>
-            <button (click)="nextStep()" [disabled]="currentStep === steps.length - 1">Next</button>
+            <button *ngIf="currentStep > 0" class="btn" id="prev" (click)="prevStep()">Previous</button>
+            <button *ngIf="currentStep < steps.length - 1" class="btn" id="next" (click)="nextStep()">Next</button>        
         </div>
     </div>
 

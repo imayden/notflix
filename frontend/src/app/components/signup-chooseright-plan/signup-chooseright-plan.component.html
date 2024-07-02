@@ -1,2 +1,94 @@
-<p>signup-chooseright-plan works!</p>
-<h1>test</h1>
+<div class="body">
+    <div class="step">
+        <p style="color: #333; margin-bottom: 0.5rem;">
+            STEP
+            <span style="font-weight: 500;">
+                1
+            </span>
+            OF
+            <span style="font-weight: 500;">4</span>
+        </p>
+        <h1>Choose the plan that’s right for you</h1>
+    </div>
+    <div class="plans">
+        <div class="plan" *ngFor="let plan of plans"
+            [style.box-shadow]="plan.selected ? '0 4px 8px rgba(0,0,0,0.2)' : 'none'"
+            [style.border]="plan.selected ? '1px solid #aaa' : '1px solid #ddd'" (click)="selectPlan(plan)">
+            <div class="plan-header" [style.background]="plan.headingColor"
+                [style.height]="plan.selected ? '86px' : '84px'">
+                <h2>{{ plan.planName }}</h2>
+                <p>{{ plan.description }}</p>
+                <div class="checkmark" *ngIf="plan.selected">&#10004;</div>
+            </div>
+            <div class="plan-body">
+                <p *ngIf="plan.monthlyPrice"><span class="small-title">Monthly price</span><br>{{ plan.monthlyPrice }}
+                </p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.quality"><span class="small-title">Video and sound quality</span><br>{{ plan.quality }}
+                </p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.resolutions"><span class="small-title">Resolution</span><br>{{ plan.resolutions }}</p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.planName === 'Premium'"><span class="small-title">Spatial audio (immersive
+                        sound)</span><br>{{ plan.spatialAudio }}</p>
+                <hr *ngIf="plan.planName === 'Premium'" style="opacity: 0.25" />
+                <p *ngIf="plan.supportedDevices"><span class="small-title">Supported devices</span><br>{{
+                    plan.supportedDevices }}</p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.maxDeviceCount"><span class="small-title">Devices your household can watch at the same
+                        time</span><br>{{ plan.maxDeviceCount }}</p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.downloadDeviceCount"><span class="small-title">Download devices</span><br>{{
+                    plan.downloadDeviceCount }}</p>
+                <hr style="opacity: 0.25" />
+                <p *ngIf="plan.ads"><span class="small-title">Ads</span><br>{{ plan.ads }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="policy">
+        <div class="restrictions">
+            <div class="icon">
+                <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4 5C4 2.23858 6.23858 0 9 0C11.7614 0 14 2.23858 14 5V6H16C17.1046 6 18 6.89543 18 8V16C18 17.1046 17.1046 18 16 18H2C0.89543 18 0 17.1046 0 16V8C0 6.89543 0.89543 6 2 6H4V5ZM12 5V6H6V5C6 3.34315 7.3431 2 9 2C10.6569 2 12 3.34315 12 5ZM2 8V16H16V8H2ZM8 10V14H10V10H8Z"
+                            fill="#6e6e6e"></path>
+                    </svg></span>
+            </div>
+            <div class="text-area">
+                <p>The vast majority of our TV shows and movies are available on an ad-supported plan, but a small
+                    number
+                    aren’t due to licensing restrictions.
+                    <a class="list-link" href="" target="_blank">
+                        Learn more about an ad-supported plan.
+                    </a>
+                </p>
+            </div>
+
+        </div>
+        <div class="list-area">
+            <ul class="list">
+                
+                <li class="li">
+                    If you select an ad-supported plan, you will be required to provide your date of birth for ads
+                    personalization and other purposes consistent with the Notflix <a class="list-link" href="" target="_blank">Privacy Statement.</a>
+                </li>
+
+                <li class="li">
+                    Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device
+                    capabilities. Not all content is available in all resolutions. See <a class="list-link" href="" target="_blank">Terms of Use</a> for more details.
+                </li>
+
+                <li class="li">
+                    Only people who live with you may use your account. Add 1 extra member with Standard or up to 2 with
+                    Premium. <a class="list-link" href="" target="_blank">Learn more.</a> Watch on 4 different devices at the same time with Premium and 2 with Standard
+                    or Standard with ads.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
