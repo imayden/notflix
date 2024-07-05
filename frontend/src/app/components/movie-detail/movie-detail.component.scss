@@ -1,0 +1,40 @@
+.movie-detail {
+    color: white;
+    background-color: #141414;
+    padding: 20px;
+  
+    .movie-header {
+      text-align: center;
+  
+      img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+      }
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-top: 10px;
+      }
+  
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  
+    .movie-content {
+      margin-top: 20px;
+  
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+  
+      .actors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  }
+  

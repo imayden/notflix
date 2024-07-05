@@ -18,6 +18,7 @@ import { SignupCreateAccountComponent } from './components/signup-create-account
 import { HomeComponent } from './components/home/home.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
-    HomeComponent
+    HomeComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

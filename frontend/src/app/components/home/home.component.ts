@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
 import { response } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit{
 
   constructor(
     private movieService: MovieService,
+    private router: Router, 
     @Inject(PLATFORM_ID) private platformId: Object
   ){
     this.isBrowser = isPlatformBrowser(platformId);
@@ -56,5 +58,8 @@ export class HomeComponent implements OnInit{
     }
   }
 
+  viewMovieDetail(movieId: number): void {
+    this.router.navigate(['/movie', movieId]);
+  }
 
 }

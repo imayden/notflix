@@ -1,0 +1,16 @@
+<p>movie-detail works!</p>
+<div *ngIf="movie" class="movie-detail">
+    <div class="movie-header">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path" alt="{{ movie.title }}">
+      <h1>{{ movie.title }}</h1>
+      <p>{{ movie.release_date }} | {{ movie.vote_average }} / 10</p>
+      <p>{{ movie.overview }}</p>
+    </div>
+    <div class="movie-content">
+      <h2>Actors</h2>
+      <div class="actors">
+        <!-- Add actors information here -->
+      </div>
+    </div>
+  </div>
+  

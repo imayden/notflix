@@ -36,9 +36,14 @@
 
     <div class="home">
         <div class="movie-list">
-          <div class="movie" *ngFor="let movie of movies">
+          <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
             <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
-            <h3>{{ movie.title }}</h3>
+            <h2>{{ movie.title }}</h2>
+            <h3>
+                {{movie.vote_average}} · {{ movie.original_language }} · 
+                {{ movie.release_date | date: 'yyyy' }}
+
+            </h3>
             <p>{{ movie.overview }}</p>
           </div>
         </div>
