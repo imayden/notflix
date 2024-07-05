@@ -1,40 +1,101 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+}
+
+.backdrop {
+  // position: absolute;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  z-index: -1;
+  position: fixed;
+}
+
+.cover-spacer {
+  height: 116PX;
+}
+
+.info {
+  color: white;
+  border-radius: 1rem;
+  max-width: 1980px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.info-r {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  width: 50%;
+}
+
+.info-l{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1rem);
+  width: 50%;
+  border-radius: 1rem;
+  max-width: 800px;
+  padding: 2rem;
+  height: 100%;
+}
+
 .movie-detail {
-    color: white;
-    background-color: #141414;
-    padding: 20px;
-  
-    .movie-header {
-      text-align: center;
-  
-      img {
-        width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-      }
-  
-      h1 {
-        font-size: 2.5rem;
-        margin-top: 10px;
-      }
-  
-      p {
-        font-size: 1.2rem;
-      }
+  max-width: 1980px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .movie-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 10px;
     }
-  
-    .movie-content {
-      margin-top: 20px;
-  
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 10px;
-      }
-  
-      .actors {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
+
+    p {
+      font-size: 1.2rem;
     }
   }
-  
+
+  .movie-content {
+    margin-top: 20px;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .actors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+}

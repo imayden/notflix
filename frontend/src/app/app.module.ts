@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { HomeHeadingComponent } from './components/home-heading/home-heading.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
     HomeComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    HomeHeadingComponent
   ],
   imports: [
     BrowserModule,

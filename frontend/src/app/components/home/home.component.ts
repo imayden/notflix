@@ -5,6 +5,7 @@ import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
 import { response } from 'express';
 import { Router } from '@angular/router';
+import { HomeHeadingComponent } from '../home-heading/home-heading.component';
 
 @Component({
   selector: 'app-home',

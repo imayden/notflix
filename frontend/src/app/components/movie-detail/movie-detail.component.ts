@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
-
+import { HomeHeadingComponent } from '../home-heading/home-heading.component';
 
 @Component({
   selector: 'app-movie-detail',

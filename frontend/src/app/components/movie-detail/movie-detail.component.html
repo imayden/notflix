@@ -1,16 +1,35 @@
-<p>movie-detail works!</p>
-<div *ngIf="movie" class="movie-detail">
+<div class="heading">
+  <img *ngIf="movie" class="backdrop" [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path"
+    alt="{{ movie.title }}">
+  <div class="navbar">
+    <app-home-heading></app-home-heading>
+  </div>
+  <!-- <app-home-heading></app-home-heading> -->
+</div>
+<div class="body">
+  <div *ngIf="movie" class="movie-detail">
     <div class="movie-header">
-      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path" alt="{{ movie.title }}">
-      <h1>{{ movie.title }}</h1>
-      <p>{{ movie.release_date }} | {{ movie.vote_average }} / 10</p>
-      <p>{{ movie.overview }}</p>
-    </div>
-    <div class="movie-content">
-      <h2>Actors</h2>
-      <div class="actors">
-        <!-- Add actors information here -->
+      <div class="cover-spacer">
+
+      </div>
+      <div class="info">
+        <div class="info-r">
+          <h1>{{ movie.title }}</h1>
+          <p>{{ movie.release_date }} | {{ movie.vote_average }} / 10</p>
+          <p>{{ movie.overview }}</p>
+
+        </div>
+        <div class="info-l">
+          <div class="movie-content">
+            <h2>Actors</h2>
+            <div class="actors">
+              <!-- Add actors information here -->
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </div>
-  
+</div>
