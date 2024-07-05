@@ -1,0 +1,259 @@
+// heading
+.app-heading{
+    font-family: "Netflix Sans", sans-serif;
+    font-optical-sizing: auto;
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav {
+    padding-block: 1.5rem;
+    padding-inline: 3rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 1980px;
+    // background-color: #555;
+    // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    align-items: center;
+    z-index: 10;
+}
+
+@media screen and (max-width: 960px) {
+    .nav {
+        padding-inline: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav {
+        padding-inline: 0.5rem;
+    }
+}
+
+.logo-img {
+    height: 4rem;
+    width: auto;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.25rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-inline: 1rem;
+}
+
+.btn#signin {
+    color: white;
+    background-color: rgba(229, 9, 20, 1);
+}
+
+.btn#signin:hover {
+    background-color: rgb(202, 8, 17);
+}
+
+.welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; 
+}
+
+
+@media screen and (max-width: 600px) {
+    .nav {
+        padding-inline: 0.5rem;
+    }
+
+    .btn#signin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding-inline: 0.5rem;
+    }
+}
+
+
+// landing section
+.landing-cover {
+    color: white;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/335ddde7-3955-499c-b4cc-ca2eb7e1ae71/98533523-112a-488c-a711-d0517920cdb5/US-en-20240624-POP_SIGNUP_TWO_WEEKS-perspective_WEB_31571788-f022-43e9-904f-9ad7e6d57bde_medium.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.spacer {
+    height: 6rem;
+}
+
+.landing-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.landing-cover>* {
+    position: relative;
+    z-index: 2;
+}
+
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 6rem;
+    padding-inline: 1rem;
+}
+
+.landing {
+    text-align: center;
+    color: white;
+    font-family: "Netflix Sans", sans-serif;
+    font-optical-sizing: auto;
+    margin-block: 1rem;
+}
+
+.content-block#title,
+.landing#title {
+    font-size: 3.25rem;
+    font-weight: 800;
+}
+
+.content-block#sub-title,
+.landing#sub-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.landing#p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+@media screen and (max-width: 960px) {
+
+    .landing-content {
+        padding-block: 4rem;
+    }
+
+    .content-block#title,
+    .landing#title {
+        font-size: 2.25rem;
+    }
+
+    .content-block#sub-title,
+    .landing#sub-title {
+        font-size: 1.25rem;
+    }
+
+    .landing#p {
+        font-size: 1rem;
+    }
+
+    .landing#input {
+        width: 15rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .landing#register {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .landing#input,
+    .landing#btn {
+        width: 15rem;
+    }
+}
+
+
+/*
+Movie List
+*/
+
+.home {
+    padding: 20px;
+    background-color: #141414;
+    color: white;
+  
+    .movie-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    .movie {
+      background-color: #222;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+  
+    .movie img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    .movie h3 {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+  
+    .movie p {
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+  
+    .movie:hover {
+      transform: scale(1.05);
+    }
+  
+    .loading {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+  }
+  

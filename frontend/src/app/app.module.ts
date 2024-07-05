@@ -15,6 +15,9 @@ import { SignupChoosePlanComponent } from './components/signup-choose-plan/signu
 import { SignupChooserightPlanComponent } from './components/signup-chooseright-plan/signup-chooseright-plan.component';
 import { SignupFinishSetupComponent } from './components/signup-finish-setup/signup-finish-setup.component';
 import { SignupCreateAccountComponent } from './components/signup-create-account/signup-create-account.component';
+import { HomeComponent } from './components/home/home.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,14 @@ import { SignupCreateAccountComponent } from './components/signup-create-account
     SignupChoosePlanComponent,
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
-    SignupCreateAccountComponent
+    SignupCreateAccountComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

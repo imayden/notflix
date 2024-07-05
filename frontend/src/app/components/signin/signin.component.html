@@ -1,14 +1,14 @@
 <div class="app-heading">
     <div class="nav-container">
-      <nav class="nav">
-        <div class="logo"><a href="#">
-          <img class="logo-img"
-            src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-            alt="logo" /></a>
-        </div>
-      </nav>
+        <nav class="nav">
+            <div class="logo"><a href="#">
+                    <img class="logo-img"
+                        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+                        alt="logo" /></a>
+            </div>
+        </nav>
     </div>
-  </div>
+</div>
 <div class="landing-cover">
     <div class="spacer"></div>
 
@@ -17,37 +17,58 @@
             <h2 class="h2title">Sign In</h2>
         </div>
         <div class="input-area">
-            <input class="landing" id="input" placeholder="Email or mobile number" autocomplete="email" minlength="5"
-                maxlength="50" type="email" name="email">
-            <input class="landing" id="input" placeholder="Password" minlength="5" maxlength="50" type="password"
-                name="password">
-            <button class="btn" id="signin">
-                Sign In
-            </button>
-            <p>OR</p>
-            <button class="btn" id="code">
-                Use a Sign-In Code
-            </button>
-            <p><a class="findpass" href="https://www.netflix.com/LoginHelp" target="_blank"> Forgot Password?</a></p>
-        </div>
-        <div class="bottom">
-            <div>
-                <input class="checkbox" type="checkbox" id="check" name="checkbox" />
-                <label class="checkbox" id="label" for="label">Remenber Me</label>
-            </div>
+            <!-- Signin From -->
+            <form [formGroup]="signinForm" (ngSubmit)="signin()">
+                <!-- Username -->
+                <input class="landing" id="input" formControlName="username" class="landing" placeholder="Enter Username"
+                    autocomplete="username">
+                <div *ngIf="signinForm.get('username')?.invalid && signinForm.get('username')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">
+                    *Please enter username!</div>
 
-            <div>
-                <p>
-                    <span class="newuser">New to Notfilx?</span>
-                    <a class="signup" href="#">Sign up now</a>
+                <!-- Password -->
+                <input class="landing" id="input" formControlName="password" class="landing" placeholder="Enter TMDB API Read Token" type="password" autocomplete="current-password">
+                <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter valid TMDB API Read Token!</div>
+
+                <!-- Error Message -->
+                <!-- <div class="error" style="color: red;">{{ errorMessage }}</div> -->
+                <div class="error" style="color: red; margin-block: 1rem;">{{ errorMessage }}</div>
+
+                <!-- Remember Me -->
+                <div style="margin-block: 1rem">
+                    <input formControlName="rememberMe" type="checkbox" id="check">
+                    <label for="check">Remember Me</label>
+                </div>
+
+
+                <button type="submit" class="signin-btn">
+                    Sign In
+                </button>
+                <!-- <p>OR</p>
+                <button class="btn" id="code">
+                    Use a Sign-In Code
+                </button> -->
+                <p><a class="findpass" href="https://www.netflix.com/LoginHelp" target="_blank"> Forgot Password?</a>
                 </p>
-                <p>
-                    <span class="sec-footer">
-                        This page is protected by Google reCAPTCHA to ensure you're not a bot.
-                        <a href="#">Learn more.</a>
-                    </span>
-                </p>
-            </div>
+                <div class="bottom">
+                    <div>
+                        <input class="checkbox" type="checkbox" id="check" name="checkbox" />
+                        <label class="checkbox" id="label" for="label">Remenber Me</label>
+                    </div>
+
+                    <div>
+                        <p>
+                            <span class="newuser">New to Notfilx?</span>
+                            <a class="signup" href="#">Sign up now</a>
+                        </p>
+                        <p>
+                            <span class="sec-footer">
+                                This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                                <a href="#">Learn more.</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>
@@ -61,7 +82,7 @@ Footer
 * ------------------------------------------------------>
 <div class="content">
     <div class="tel">
-        Questions? Call 
+        Questions? Call
         <a class="footerlink" href="" target="_blank">1-844-505-2993</a>
     </div>
     <footer class="footer">
