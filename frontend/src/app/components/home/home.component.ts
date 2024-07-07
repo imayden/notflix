@@ -59,8 +59,15 @@ export class HomeComponent implements OnInit{
     }
   }
 
+  // viewMovieDetail(movieId: number): void {
+  //   this.router.navigate(['/movie', movieId]);
+    
+  // }
   viewMovieDetail(movieId: number): void {
-    this.router.navigate(['/movie', movieId]);
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/movie', movieId])
+    );
+    window.open(url, '_blank');
   }
 
 }

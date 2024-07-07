@@ -13,15 +13,20 @@
 
       </div>
       <div class="info">
-        <div class="info-r">
-          <h1>{{ movie.title }}</h1>
-          <p>{{ movie.release_date }} | {{ movie.vote_average }} / 10</p>
-          <p>{{ movie.overview }}</p>
+        <div class="info-up">
+          <h1 class="h1-title">{{ movie.title }}</h1>
+          <p class="text">
+            <span class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }} / 10</span>
+            <span class="movie-label" id="lang">{{ movie.original_language }}</span>
+            <span class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</span>
+            <span class="movie-label" id="vote-count">{{ movie.vote_count }} · Watched</span>
+          </p>
+          <p class="overview">{{ movie.overview }}</p>
 
         </div>
-        <div class="info-l">
+        <div class="info-down">
           <div class="movie-content">
-            <h2>Actors</h2>
+            <h2 class="h2-title">Actors</h2>
             <div class="actors">
               <!-- Add actors information here -->
             </div>
