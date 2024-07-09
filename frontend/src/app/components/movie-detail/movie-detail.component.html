@@ -23,9 +23,7 @@
 
           </div>
           <div *ngIf="movie.trailerUrl" class="movie-trailer">
-            <h2>Trailer</h2>
-            <!-- <iframe [src]="movie.trailerUrl | safeUrl" frameborder="0" allowfullscreen></iframe> -->
-            <youtube-player class="youtube-player" [videoId]="extractVideoId(movie.trailerUrl)"></youtube-player>
+            <!-- <youtube-player class="youtube-player" [videoId]="extractVideoId(movie.trailerUrl)"></youtube-player> -->
           </div>
         </div>
 
