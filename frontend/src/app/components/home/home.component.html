@@ -23,16 +23,17 @@
       <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
         <div class="info">
-          <h3>{{ movie.title }}</h3>
           <h4>
             <span class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }}</span>
             <span class="movie-label" id="lang">{{ movie.original_language }}</span>
             <span class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</span>
-
           </h4>
-          <div class="overview-container">
-            <p class="overview">{{ movie.overview }}&nbsp;</p>
+          <div class="movie-title">
+            <h3>{{ movie.title }}</h3>
           </div>
+          <!-- <div class="overview-container">
+            <p class="overview">{{ movie.overview }}&nbsp;</p>
+          </div> -->
         </div>
       </div>
     </div>

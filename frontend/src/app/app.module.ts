@@ -20,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { HomeHeadingComponent } from './components/home-heading/home-heading.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { HomeHeadingComponent } from './components/home-heading/home-heading.com
     SignupCreateAccountComponent,
     HomeComponent,
     MovieDetailComponent,
-    HomeHeadingComponent
+    HomeHeadingComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    YouTubePlayerModule
   ],
   providers: [
     provideClientHydration()

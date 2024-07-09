@@ -1,27 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../services/movie.service';
-import { Movie } from '../../interfaces/movie';
-import { HomeHeadingComponent } from '../home-heading/home-heading.component';
+import { MovieDetailService } from '../../services/movie-detail.service';
+import { MovieDetail } from '../../interfaces/movie-detail';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrl: './movie-detail.component.scss'
+  styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-  movie: Movie | undefined;
+  movie: MovieDetail | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService
+    private movieDetailService: MovieDetailService
   ) { }
 
   ngOnInit(): void {
-      const movieId = Number(this.route.snapshot.paramMap.get('id'));
-      this.movieService.getMovie(movieId).subscribe((movie: Movie) => {
-        this.movie = movie;
-      });
+    const movieId = Number(this.route.snapshot.paramMap.get('id'));
+    this.movieDetailService.getMovieDetail(movieId).subscribe((movie: MovieDetail) => {
+      this.movie = movie;
+    });
   }
 
+  extractVideoId(url: string): string {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : '';
+  }
 }
