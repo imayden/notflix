@@ -1,62 +1,65 @@
 <div class="heading">
-  <!-- <img *ngIf="movie" class="backdrop" [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path" alt="{{ movie.title }}"> -->
   <img *ngIf="movie" class="backdrop" [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path"
     alt="{{ movie.title }}">
   <div class="navbar">
     <app-home-heading></app-home-heading>
   </div>
 </div>
+
 <div class="body">
+  <div class="cover-spacer"></div>
 
-  <div *ngIf="movie" class="movie-detail">
-    <div class="movie-header">
-      <div class="cover-spacer"></div>
-      <div class="info">
-        <div class="info-up">
-          <div class="overview-info">
-            <h1 class="h1-title">{{ movie.title }}</h1>
-            <p class="text">
-              <span class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }} / 10</span>
-              <span class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</span>
-            </p>
-            <p class="overview">{{ movie.overview }}</p>
+  <div class="details-container">
+    <div *ngIf="movie" class="details">
 
-          </div>
-          <div *ngIf="movie.trailerUrl" class="movie-trailer">
-            <!-- <youtube-player class="youtube-player" [videoId]="extractVideoId(movie.trailerUrl)"></youtube-player> -->
-          </div>
-        </div>
+      <!-- movie-overview -->
+      <div class="detail-block" id="movie-overview">
+        <h1 class="h1-title">{{ movie.title }}</h1>
+        <p class="text">
+          <span class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }} / 10</span>
+          <span class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</span>
+        </p>
+        <p class="overview">{{ movie.overview }}</p>
+      </div>
 
-        <div class="info-down">
-          <div class="providers">
-            <h2>Providers</h2>
-          </div>
-          <div class="cast">
-            <h2>Cast</h2>
-            <div class="cast-grid">
-              <div *ngFor="let actor of movie.cast" class="actor">
-                <div class="cast-item">
-                  <div class="cast-img-container">
-                    <div class="no-img">
-                      <p class="no-img-label">
-                        <!-- No Image -->
-                      </p>
-                    </div>
-                    <img class="cast-img" *ngIf="actor.profile_path"
-                      [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}">
-                  </div>
-                  <p>{{ actor.name }} as {{ actor.character }}</p>
+      <!-- movie-trailer -->
+      <div *ngIf="movie.trailerUrl" class="detail-block" id="movie-trailer">
+        <youtube-player class="ytb-player" [videoId]="extractVideoId(movie.trailerUrl)"></youtube-player>
+      </div>
+
+      <!-- movie-providers -->
+      <!-- <div class="detail-block" id="movie-providers">
+        providers
+      </div> -->
+
+      <!-- movie-cast -->
+      <div class="detail-block" id="movie-cast">
+        <h2 class="cast-sec" style="margin-top:0; margin-left: 1.5rem;">Cast</h2>
+        <div class="cast">
+          <div class="cast-grid">
+            <div *ngFor="let actor of movie.cast" class="actor">
+              <div class="cast-item">
+                <div class="cast-img-container">
+                  <img class="cast-img" *ngIf="actor.profile_path"
+                    [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}">
                 </div>
+                <p class="cast-name">{{ actor.name }} as {{ actor.character }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
+
   </div>
+
 
   <div *ngIf="!movie" class="loading">
     Loading movie details...
   </div>
+
+  <footer>2024 Notflix &copy; Ayden Deng</footer>
 
 </div>

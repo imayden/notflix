@@ -38,9 +38,9 @@ export class HomeComponent implements OnInit{
 
     this.loading = true;
 
-    this.movieService.getMovies(this.page).subscribe( // this.page Expected 0 arguments, but got 1.
+    this.movieService.getMovies(this.page).subscribe( 
       (response) => {
-        this.movies = [...this.movies, ...response.results]; // Property 'movies' does not exist on type 'HomeComponent'. Property 'results' does not exist on type 'Movie[]'.
+        this.movies = [...this.movies, ...response.results]; 
         this.page++;
         this.loading = false;
       },
@@ -54,15 +54,13 @@ export class HomeComponent implements OnInit{
 
   @HostListener('window:scroll', [])
   onScroll(): void {
-    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const threshold = document.documentElement.offsetHeight - 100;
+
+    if (scrollPosition >= threshold && !this.loading) {
       this.loadMovies();
     }
   }
-
-  // viewMovieDetail(movieId: number): void {
-  //   this.router.navigate(['/movie', movieId]);
-    
-  // }
   viewMovieDetail(movieId: number): void {
     const url = this.router.serializeUrl(
       this.router.createUrlTree(['/movie', movieId])
