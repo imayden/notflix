@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: WelcomeComponent }, // Welcome Page
   { path: 'signin', component: SigninComponent }, // Signin
   { path: 'signup', component: SignupComponent }, // Signup
-  { path: 'home', component: HomeComponent }, // Home Page
+  { path: 'home', loadChildren: () => import('./modules/home.module').then(m => m.HomeModule) }, // Home Page
   { path: 'movie/:id', component: MovieDetailComponent }
   
 ];

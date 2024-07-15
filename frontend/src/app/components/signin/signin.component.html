@@ -30,7 +30,6 @@
                 <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter valid TMDB API Read Token!</div>
 
                 <!-- Error Message -->
-                <!-- <div class="error" style="color: red;">{{ errorMessage }}</div> -->
                 <div class="error" style="color: red; margin-block: 1rem;">{{ errorMessage }}</div>
 
                 <!-- Remember Me -->
@@ -43,17 +42,10 @@
                 <button type="submit" class="signin-btn">
                     Sign In
                 </button>
-                <!-- <p>OR</p>
-                <button class="btn" id="code">
-                    Use a Sign-In Code
-                </button> -->
+
                 <p><a class="findpass" href="https://www.netflix.com/LoginHelp" target="_blank"> Forgot Password?</a>
                 </p>
                 <div class="bottom">
-                    <div>
-                        <input class="checkbox" type="checkbox" id="check" name="checkbox" />
-                        <label class="checkbox" id="label" for="label">Remenber Me</label>
-                    </div>
 
                     <div>
                         <p>

@@ -80,12 +80,15 @@ export class SigninComponent implements OnInit {
           sessionStorage.setItem('username', username);
           sessionStorage.setItem('password', password);
         }
-        this.router.navigate(['home]']);
+
+        // Open HomeComponent if the password is valid (response status 200)
+        window.open(this.router.serializeUrl(this.router.createUrlTree(['home'])));
+      
       },
 
       // Validate TMDb API Read Token
       (error: HttpErrorResponse) => {
-        if (error.status !== 200) {
+        if (error.status !== 200) { // if the password is invalid (response status is not 200, like 401 unathorized response)
           this.errorMessage = '*Invalid Token! Please enter a valid TMDB API Read Token.';
         }
       }

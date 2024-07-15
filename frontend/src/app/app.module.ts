@@ -36,7 +36,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
-    HomeComponent,
+    // HomeComponent,
     MovieDetailComponent,
     HomeHeadingComponent,
     SafeUrlPipe

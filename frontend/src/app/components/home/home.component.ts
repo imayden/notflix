@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, PLATFORM_ID, AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MovieService } from '../../services/movie.service';
@@ -12,7 +12,8 @@ import { HomeHeadingComponent } from '../home-heading/home-heading.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('loadMoreTrigger') loadMoreTrigger!: ElementRef;
 
   movies: Movie[] = [];
   page: number = 1;
@@ -31,6 +32,20 @@ export class HomeComponent implements OnInit{
       if(this.isBrowser) {
         this.loadMovies();
       }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.isBrowser && this.loadMoreTrigger) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.loading) {
+            this.loadMovies();
+          }
+        });
+      }, { threshold: 1.0 });
+      
+      observer.observe(this.loadMoreTrigger.nativeElement);
+    }
   }
 
   loadMovies() {
@@ -52,7 +67,7 @@ export class HomeComponent implements OnInit{
     )
   }
 
-  @HostListener('window:scroll', [])
+  @HostListener('window:scroll', []) // infinite scrolling
   onScroll(): void {
     const scrollPosition = window.innerHeight + window.scrollY;
     const threshold = document.documentElement.offsetHeight - 100;
