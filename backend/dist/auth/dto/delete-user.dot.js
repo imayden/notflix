@@ -10,14 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteUserDto = void 0;
-var class_validator_1 = require("class-validator");
-var DeleteUserDto = /** @class */ (function () {
-    function DeleteUserDto() {
-    }
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        __metadata("design:type", String)
-    ], DeleteUserDto.prototype, "email", void 0);
-    return DeleteUserDto;
-}());
+const class_validator_1 = require("class-validator");
+class DeleteUserDto {
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], DeleteUserDto.prototype, "email", void 0);
 exports.DeleteUserDto = DeleteUserDto;
+//# sourceMappingURL=delete-user.dot.js.map

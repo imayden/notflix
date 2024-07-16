@@ -10,31 +10,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RefreshTokenDto = void 0;
-var class_validator_1 = require("class-validator");
-var user_role_enum_1 = require("../enum/user-role.enum");
-var RefreshTokenDto = /** @class */ (function () {
-    function RefreshTokenDto() {
+const openapi = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
+const user_role_enum_1 = require("../enums/user-role.enum");
+class RefreshTokenDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, username: { required: true, type: () => String }, email: { required: true, type: () => String }, role: { required: true, type: () => String }, tmdb_key: { required: true, type: () => String } };
     }
-    __decorate([
-        (0, class_validator_1.IsString)()
-        // @IsUUID()
-        ,
-        __metadata("design:type", String)
-    ], RefreshTokenDto.prototype, "id", void 0);
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        __metadata("design:type", String)
-    ], RefreshTokenDto.prototype, "username", void 0);
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        (0, class_validator_1.IsEmail)(),
-        __metadata("design:type", String)
-    ], RefreshTokenDto.prototype, "email", void 0);
-    __decorate([
-        (0, class_validator_1.IsOptional)(),
-        (0, class_validator_1.IsEnum)(user_role_enum_1.UserRole),
-        __metadata("design:type", String)
-    ], RefreshTokenDto.prototype, "role", void 0);
-    return RefreshTokenDto;
-}());
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "id", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "username", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEmail)(),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(user_role_enum_1.UserRole),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "role", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], RefreshTokenDto.prototype, "tmdb_key", void 0);
 exports.RefreshTokenDto = RefreshTokenDto;
+//# sourceMappingURL=refresh-token.dto.js.map

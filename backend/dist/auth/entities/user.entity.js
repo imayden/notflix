@@ -10,45 +10,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-var typeorm_1 = require("typeorm");
-var user_role_enum_1 = require("../enum/user-role.enum");
-var User = /** @class */ (function () {
-    function User() {
+const openapi = require("@nestjs/swagger");
+const typeorm_1 = require("typeorm");
+const user_role_enum_1 = require("../enums/user-role.enum");
+let User = class User {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, username: { required: true, type: () => String }, email: { required: true, type: () => String }, password: { required: true, type: () => String }, role: { required: true, enum: require("../enums/user-role.enum").UserRole }, tmdb_key: { required: true, type: () => String } };
     }
-    // Add method to validate password
-    User.prototype.validatePassword = function (password) {
-        // Implement your password validation logic here
-        // For simplicity, let's assume passwords are stored in plain text (which is not recommended in production)
-        return this.password === password;
-    };
-    __decorate([
-        (0, typeorm_1.ObjectIdColumn)() // for mongodb;
-        ,
-        __metadata("design:type", Object)
-    ], User.prototype, "_id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "username", void 0);
-    __decorate([
-        (0, typeorm_1.Column)({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "email", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "password", void 0);
-    __decorate([
-        (0, typeorm_1.Column)({
-            type: "enum",
-            enum: user_role_enum_1.UserRole,
-            default: user_role_enum_1.UserRole.USER,
-        }),
-        __metadata("design:type", String)
-    ], User.prototype, "role", void 0);
-    User = __decorate([
-        (0, typeorm_1.Entity)("user")
-    ], User);
-    return User;
-}());
+};
+__decorate([
+    (0, typeorm_1.ObjectIdColumn)(),
+    __metadata("design:type", String)
+], User.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "username", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ unique: true }),
+    __metadata("design:type", String)
+], User.prototype, "email", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: user_role_enum_1.UserRole,
+        default: user_role_enum_1.UserRole.USER,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "role", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "tmdb_key", void 0);
+User = __decorate([
+    (0, typeorm_1.Entity)()
+], User);
 exports.User = User;
+//# sourceMappingURL=user.entity.js.map

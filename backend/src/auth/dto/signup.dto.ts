@@ -1,41 +1,46 @@
-// import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import {
-	IsEmail,
-	IsEnum,
-	IsOptional,
-	IsString,
-	MaxLength,
-	MinLength,
-} from "class-validator";
-import { UserRole } from "../enum/user-role.enum";
+  IsEmail,
+  IsEnum,
+  IsOptional,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
+import { UserRole } from '../enums/user-role.enum';
 
 export class SignUpCredentialsDto {
-	// @ApiProperty({
-	//   description: 'show username in the header or nav after user signin',
-	// })
-	@IsString()
-	@MinLength(4)
-	@MaxLength(10)
-	readonly username!: string;
+  @ApiProperty({
+    description: 'show username in the header or nav after user signin',
+  })
+  @IsString()
+  @MinLength(4)
+  @MaxLength(10)
+  readonly username: string;
 
-	// @ApiProperty()
-	@IsString()
-	// @MinLength(4)
-	// @MaxLength(10)
-	// @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-	//   message: 'password is too week!',
-	// })
-	readonly password!: string;
+  @ApiProperty()
+  @IsString()
+  // @MinLength(4)
+  // @MaxLength(10)
+  // @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+  //   message: 'password is too week!',
+  // })
+  readonly password: string;
 
-	// @ApiProperty()
-	@IsString()
-	@IsEmail()
-	readonly email!: string;
+  @ApiProperty()
+  @IsString()
+  @IsEmail()
+  readonly email: string;
 
-	// @ApiProperty()
-	@IsOptional()
-	@IsEnum(UserRole)
-	readonly role!: string;
+  @ApiProperty()
+  @IsOptional()
+  @IsEnum(UserRole)
+  readonly role: string;
+
+  @ApiProperty()
+  @IsString()
+  @MinLength(15)
+  tmdb_key: string;
 }
 
 /**

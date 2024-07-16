@@ -1,4 +1,20 @@
-<app-home-heading></app-home-heading>
+<div class="app-heading">
+  <div class="nav-container">
+      <nav class="nav">
+          <div class="logo">
+              <div class="logo"><a href="#">
+                      <img class="logo-img"
+                          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+                          alt="logo" /></a>
+              </div>
+          </div>
+
+          <div class="btns">
+              <a class="btn" id="signin" href="/signin">Sign In</a>
+          </div>
+      </nav>
+  </div>
+</div>
 
 <div class="body">
 
@@ -11,16 +27,13 @@
         <h3 class="landing" id="sub-title">Watch anywhere. Cancel anytime.</h3>
         <p class="landing" id="p">Ready to watch? Enter your email to create or restart your membership.</p>
 
-        <!-- Get Started -->
-        <app-get-started></app-get-started>
-
       </div>
     </div>
   </div>
 
   <div class="movie-feed">
     <div class="movie-list">
-      <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
+      <!-- <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
         <div class="info">
           <h4>
@@ -32,9 +45,10 @@
             <h3>{{ movie.title }}</h3>
           </div>
         </div>
-      </div>
+      </div> -->
+      
     </div>
-    <div class="loading" *ngIf="loading">Loading...</div>
+    <!-- <div class="loading" *ngIf="loading">Loading...</div> -->
   </div>
-
+  <div #loadMoreTrigger></div> <!-- Intersection Observer target -->
 </div>

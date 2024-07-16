@@ -11,9 +11,13 @@
         <h1>Create a password to start your membership</h1>
         <p class="sub-title">Just a few more steps and you're done!
             We hate paperwork, too.</p>
-        <input class="input"  placeholder="Email" autocomplete="email" minlength="5" maxlength="50"
-            type="email" name="email">
-        <input class="input" placeholder="Add a password" minlength="5" maxlength="50" type="password"
-            name="password">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <input class="input" formControlName="email" placeholder="Email" autocomplete="email" minlength="5" maxlength="50" type="email">
+            <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid email!</div>
+            <input class="input" formControlName="password" placeholder="Add a password" minlength="5" maxlength="50" type="password">
+            <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid password!</div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div *ngIf="errorMessage" class="error" style="color: red; margin-block: 1rem;">{{ errorMessage }}</div>
     </div>
 </div>

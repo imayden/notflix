@@ -10,14 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckEmailDto = void 0;
-var class_validator_1 = require("class-validator");
-var CheckEmailDto = /** @class */ (function () {
-    function CheckEmailDto() {
+const openapi = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
+class CheckEmailDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { email: { required: true, type: () => String } };
     }
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        __metadata("design:type", String)
-    ], CheckEmailDto.prototype, "email", void 0);
-    return CheckEmailDto;
-}());
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CheckEmailDto.prototype, "email", void 0);
 exports.CheckEmailDto = CheckEmailDto;
+//# sourceMappingURL=check-email.dto.js.map

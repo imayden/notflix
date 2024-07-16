@@ -10,19 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignInCredentialsDto = void 0;
-var class_validator_1 = require("class-validator");
-var SignInCredentialsDto = /** @class */ (function () {
-    function SignInCredentialsDto() {
+const openapi = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
+class SignInCredentialsDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { email: { required: true, type: () => String }, password: { required: true, type: () => String } };
     }
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        (0, class_validator_1.IsEmail)(),
-        __metadata("design:type", String)
-    ], SignInCredentialsDto.prototype, "email", void 0);
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        __metadata("design:type", String)
-    ], SignInCredentialsDto.prototype, "password", void 0);
-    return SignInCredentialsDto;
-}());
+}
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEmail)(),
+    __metadata("design:type", String)
+], SignInCredentialsDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], SignInCredentialsDto.prototype, "password", void 0);
 exports.SignInCredentialsDto = SignInCredentialsDto;
+//# sourceMappingURL=signin.dto.js.map

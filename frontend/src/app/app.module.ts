@@ -23,6 +23,10 @@ import { HomeHeadingComponent } from './components/home-heading/home-heading.com
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
+import { AuthService } from './services/auth.service';
+import { CoreModule } from './core/core.module';
+import { DecimalPipe, DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,10 +50,14 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    CoreModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    AuthService,
+    DecimalPipe,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

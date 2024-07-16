@@ -48,3 +48,32 @@
     outline: none;
     border: 1px solid #333;
 }
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.25rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-inline: 1rem;
+    width: 416px;
+    background-color: rgba(229, 9, 20, 1);
+    font-size: 1.5rem;
+    height: 65px;
+    color:white;
+    border: none;
+}
+
