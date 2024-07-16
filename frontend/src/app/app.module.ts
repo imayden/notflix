@@ -15,12 +15,10 @@ import { SignupChoosePlanComponent } from './components/signup-choose-plan/signu
 import { SignupChooserightPlanComponent } from './components/signup-chooseright-plan/signup-chooseright-plan.component';
 import { SignupFinishSetupComponent } from './components/signup-finish-setup/signup-finish-setup.component';
 import { SignupCreateAccountComponent } from './components/signup-create-account/signup-create-account.component';
-import { HomeComponent } from './components/home/home.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { HomeHeadingComponent } from './components/home-heading/home-heading.component';
-import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { AuthService } from './services/auth.service';
@@ -40,10 +38,8 @@ import { DecimalPipe, DatePipe } from '@angular/common';
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
-    // HomeComponent,
     MovieDetailComponent,
-    HomeHeadingComponent,
-    SafeUrlPipe
+    HomeHeadingComponent
   ],
   imports: [
     BrowserModule,

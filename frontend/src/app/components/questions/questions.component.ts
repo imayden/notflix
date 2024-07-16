@@ -24,7 +24,7 @@ export class QuestionsComponent {
       ],
       open: false
     },
-    // Add more FAQs as needed
+
   ];
 
   toggleAnswer(faq: FAQ) {

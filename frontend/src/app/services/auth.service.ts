@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, of, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { AppUserAuth } from '../interfaces/user-auth';
-import { AppUserRegister, UserInfo } from '../interfaces/user-signup';
+import { AppUserRegister } from '../interfaces/user-signup';
 import { AuthDto } from '../interfaces/auth-dto';
 import { AUTHSERVER } from '../core/core.module';
 import { isPlatformBrowser } from '@angular/common';

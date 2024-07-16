@@ -1,12 +1,8 @@
 import { Component, OnInit, HostListener, Inject, PLATFORM_ID, AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
-import { response } from 'express';
 import { Router } from '@angular/router';
-import { HomeHeadingComponent } from '../home-heading/home-heading.component';
 
 @Component({
   selector: 'app-home',

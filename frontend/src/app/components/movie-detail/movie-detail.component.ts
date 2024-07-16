@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetailService } from '../../services/movie-detail.service';
 import { MovieDetail } from '../../interfaces/movie-detail';
-import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-movie-detail',

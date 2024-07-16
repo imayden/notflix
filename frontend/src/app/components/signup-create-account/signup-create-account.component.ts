@@ -35,9 +35,6 @@ export class SignupCreateAccountComponent {
 
     const userData = this.signupForm.value;
 
-    console.log("Frontend Input" + " ");
-    console.log(userData);  // Check the data sent
-
     this.authService.signup(userData).subscribe(
       () => {
         this.router.navigate(['/signin']); // Redirect to signin page
