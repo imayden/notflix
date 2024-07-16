@@ -32,8 +32,9 @@ export class AuthController {
     @Body() signupCredentialsDto: SignUpCredentialsDto,
   ): Promise<{ accessToken: string; role: string }> {
 
-    console.log('Received signup data');
     console.log(signupCredentialsDto);
+    console.log('✅ Received signup data: Sign Up Successfully!');
+    
     return this.authService.signUp(signupCredentialsDto);
   }
 
@@ -42,6 +43,10 @@ export class AuthController {
   signIn(
     @Body() signinCredentialsDto: SignInCredentialsDto,
   ): Promise<{ accessToken: string; role: string }> {
+
+    console.log(signinCredentialsDto);
+    console.log('✅ Received signin data: Sign In Successfully!');
+
     return this.authService.signIn(signinCredentialsDto);
   }
 
