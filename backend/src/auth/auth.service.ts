@@ -26,12 +26,10 @@ export class AuthService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     private readonly jwtService: JwtService,
-  ) {}
+  ) { }
 
   /* SignUp @Post */
-  async signUp(
-    signupCredentialsDto: SignUpCredentialsDto,
-  ): Promise<{ accessToken: string; role: UserRole }> {
+  async signUp(signupCredentialsDto: SignUpCredentialsDto): Promise<{ accessToken: string; role: UserRole }> {
     try {
       const { username, password, email, tmdb_key, role } =
         signupCredentialsDto;
@@ -67,6 +65,8 @@ export class AuthService {
       }
     }
   }
+
+
 
   /* SignIn @Post */
   async signIn(
@@ -163,7 +163,7 @@ export class AuthService {
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ create JWT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   private createToken(user: User) {
     console.log(user);
-    
+
     const payload: JwtPayload = {
       id: user.id.toString(),
       username: user.username,

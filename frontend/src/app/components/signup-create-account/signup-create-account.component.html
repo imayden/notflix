@@ -1,23 +1,25 @@
 <div class="body">
     <div class="step">
-        <p style="color: #333; margin-bottom: 0.5rem;">
-            STEP
-            <span style="font-weight: 500;">
-                2
-            </span>
-            OF
-            <span style="font-weight: 500;">4</span>
-        </p>
-        <h1>Create a password to start your membership</h1>
-        <p class="sub-title">Just a few more steps and you're done!
-            We hate paperwork, too.</p>
-        <form [formGroup]="signupForm" (ngSubmit)="signup()">
-            <input class="input" formControlName="email" placeholder="Email" autocomplete="email" minlength="5" maxlength="50" type="email">
-            <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid email!</div>
-            <input class="input" formControlName="password" placeholder="Add a password" minlength="5" maxlength="50" type="password">
-            <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid password!</div>
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-        <div *ngIf="errorMessage" class="error" style="color: red; margin-block: 1rem;">{{ errorMessage }}</div>
+      <p style="color: #333; margin-bottom: 0.5rem;">
+        STEP
+        <span style="font-weight: 500;">2</span>
+        OF
+        <span style="font-weight: 500;">4</span>
+      </p>
+      <h1>Create a password to start your membership</h1>
+      <p class="sub-title">Just a few more steps and you're done! We hate paperwork, too.</p>
+      <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <input class="input" formControlName="email" placeholder="Email" autocomplete="email" minlength="5" maxlength="50" type="email">
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid email!</div>
+        <input class="input" formControlName="username" placeholder="Username" minlength="3" maxlength="50" type="text">
+        <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid username!</div>
+        <input class="input" formControlName="password" placeholder="Add a password" minlength="5" maxlength="50" type="password">
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid password!</div>
+        <input class="input" formControlName="tmdb_key" placeholder="TMDB API Key" minlength="10" maxlength="100" type="text">
+        <div *ngIf="signupForm.get('tmdb_key')?.invalid && signupForm.get('tmdb_key')?.touched" class="error" style="margin-bottom: 0.5rem; color:red">*Please enter a valid TMDB API Key!</div>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+      <div *ngIf="errorMessage" class="error" style="color: red; margin-block: 1rem;">{{ errorMessage }}</div>
     </div>
-</div>
+  </div>
+  

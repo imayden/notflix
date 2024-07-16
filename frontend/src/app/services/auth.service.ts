@@ -179,25 +179,39 @@ export class AuthService {
     };
   }
 
-  tmdb_key = "6b304a5a317d55e99cc042db50b03dab";
+  // tmdb_key = "6b304a5a317d55e99cc042db50b03dab";
+  // signup(userRole: { email: string, password: string, role: UserRole }): Observable<AuthDto | string> {
+  //   this.appUserRegister = { ...this.appUserRegister, ...userRole };
+  //   const { email, password, role } = this.appUserRegister;
 
-  signup(userRole: { email: string, password: string, role: UserRole }): Observable<AuthDto | string> {
-    this.appUserRegister = { ...this.appUserRegister, ...userRole };
-    const { email, password, role } = this.appUserRegister;
+  //   if (!email || !password || !role) return of('Register failed');
 
-    if (!email || !password || !role) return of('Register failed');
-
-    return this.http.post<AuthDto>([this.authServerPath, 'auth', 'signup'].join('/'), this.appUserRegister)
+  //   return this.http.post<AuthDto>([this.authServerPath, 'auth', 'signup'].join('/'), this.appUserRegister)
+  //     .pipe(
+  //       tap(({ accessToken, role }: AuthDto) => {
+  //         this.setUserValueByToken({ accessToken, role });
+  //         this.router.navigate(['/movies']);
+  //       }),
+  //       catchError((error) => {
+  //         return throwError('SomeThing Wrong during sign up!', error);
+  //       }),
+  //     );
+  // }
+  signup(userData: { email: string; username: string; password: string; tmdb_key: string; role: string }): Observable<AuthDto> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post<AuthDto>(`${this.authServerPath}/auth/signup`, userData, { headers })
       .pipe(
         tap(({ accessToken, role }: AuthDto) => {
           this.setUserValueByToken({ accessToken, role });
-          this.router.navigate(['/movies']);
+          this.router.navigate(['/home']);
         }),
         catchError((error) => {
-          return throwError('SomeThing Wrong during sign up!', error);
+          return throwError('Something went wrong during sign up!', error);
         }),
       );
   }
+  
+  
 
   private setUserValueByToken = ({ accessToken, role }: AuthDto) => {
     if (this.isBrowser) localStorage.setItem('access_token', accessToken);

@@ -31,6 +31,9 @@ export class AuthController {
   signUp(
     @Body() signupCredentialsDto: SignUpCredentialsDto,
   ): Promise<{ accessToken: string; role: string }> {
+
+    console.log('Received signup data');
+    console.log(signupCredentialsDto);
     return this.authService.signUp(signupCredentialsDto);
   }
 

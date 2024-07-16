@@ -15,6 +15,7 @@ async function bootstrap() {
   //   origin: 'http://localhost:4200',
   // });
   app.enableCors();
+
   app.use(CookieParser());
   app.useGlobalPipes(
     new ValidationPipe({
@@ -26,6 +27,7 @@ async function bootstrap() {
       },
     }),
   );
+
 
   /* for swagger documentation */
   const options = new DocumentBuilder()
