@@ -33,7 +33,7 @@
 
   <div class="movie-feed">
     <div class="movie-list">
-      <!-- <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
+      <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
         <div class="info">
           <h4>
@@ -45,10 +45,10 @@
             <h3>{{ movie.title }}</h3>
           </div>
         </div>
-      </div> -->
+      </div>
       
     </div>
-    <!-- <div class="loading" *ngIf="loading">Loading...</div> -->
+    <div class="loading" *ngIf="loading">Loading...</div>
   </div>
-  <div #loadMoreTrigger></div> <!-- Intersection Observer target -->
+  <div #loadMoreTrigger></div>
 </div>
