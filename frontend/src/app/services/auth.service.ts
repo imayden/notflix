@@ -17,12 +17,12 @@ export class AuthService {
   private jwtHelper = new JwtHelperService();
   userSignal = signal<AppUserAuth>({});
 
-  private appUserRegister = new AppUserRegister();
+  // private appUserRegister = new AppUserRegister();
   private refreshTokenTimeout!: ReturnType<typeof setTimeout>;
 
-  get appNewUser(): AppUserRegister {
-    return this.appUserRegister;
-  }
+  // get appNewUser(): AppUserRegister {
+  //   return this.appUserRegister;
+  // }
 
   private isBrowser!: boolean;
   private readonly platform = inject(PLATFORM_ID);
@@ -57,8 +57,8 @@ export class AuthService {
 
   /* SignUp */
   signup(userData: { email: string; username: string; password: string; tmdb_key: string; role: string }): Observable<AuthDto> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<AuthDto>(`${this.authServerPath}/auth/signup`, userData)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<AuthDto>(`${this.authServerPath}/auth/signup`, userData, { headers })
       .pipe(
         tap(({ accessToken, role }: AuthDto) => {
           this.setUserValueByToken({ accessToken, role });

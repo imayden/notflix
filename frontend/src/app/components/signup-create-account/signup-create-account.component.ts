@@ -23,7 +23,7 @@ export class SignupCreateAccountComponent {
       password: ['', [Validators.required, Validators.minLength(5)]],
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       tmdb_key: ['', [Validators.required, Validators.minLength(15)]],
-      role: ['User', Validators.required]  // Default role as 'User'
+      role: ['USER', Validators.required]  // Default role as 'USER'
     });
   }
 
