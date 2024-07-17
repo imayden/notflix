@@ -43,6 +43,7 @@ export class AuthService {
   }
 
   getUsername(): string | null {
+    console.log(this.username);
     return this.username;
   }
   
@@ -88,11 +89,15 @@ export class AuthService {
   
 
   private setUserValueByToken = ({ accessToken, role }: AuthDto) => {
-    if (this.isBrowser) localStorage.setItem('access_token', accessToken);
-    const { id, username, email, exp } = this.jwtHelper.decodeToken(accessToken);
-    const user = { ...{ id, username, email, role }, jwtToken: accessToken };
-    this.userSignal.set(user);
-    this.startRefreshTokenTimer(exp);
+    if (this.isBrowser) {
+      localStorage.setItem('access_token', accessToken);
+      const { id, username, email, exp } = this.jwtHelper.decodeToken(accessToken);
+      localStorage.setItem('username', username);  
+      this.username = username;
+      const user = { ...{ id, username, email, role }, jwtToken: accessToken };
+      this.userSignal.set(user);
+      this.startRefreshTokenTimer(exp);
+    }
   };
 
   private startRefreshTokenTimer(exp: string) {

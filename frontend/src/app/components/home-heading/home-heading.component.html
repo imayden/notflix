@@ -2,16 +2,18 @@
     <div class="nav-container">
         <nav class="nav">
             <div class="logo">
-                <div class="logo"><a href="#">
+                <div class="logo">
+                  <a href="/home">
                         <img class="logo-img"
                             src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-                            alt="logo" /></a>
+                            alt="logo" />
+                          </a>
                 </div>
             </div>    
 
             <div class="btns">
-                <div *ngIf="authService.isAuthenticated(); else loggedOut">
-                  <span class="username">{{ authService.getUsername() }}</span>
+                <div class="user-info" *ngIf="authService.isAuthenticated(); else loggedOut">
+                  <a class="username" href="/home"><span style="font-weight: 400; text-transform: capitalize; opacity: 0.5;">Hello, &nbsp;</span>{{ authService.getUsername() }}</a>
                   <a class="btn" id="logout" (click)="logout()">Logout</a>
                 </div>
                 <ng-template #loggedOut>

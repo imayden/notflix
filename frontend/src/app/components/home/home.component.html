@@ -5,17 +5,21 @@
   <div class="landing-cover">
     <div class="spacer"></div>
     <div class="landing-content">
+
       <div class="landing-text">
 
         <h1 class="landing" id="title">Unlimited movies, TV shows, and more</h1>
-        <h3 class="landing" id="sub-title">Watch anywhere. Cancel anytime.</h3>
-        <p class="landing" id="p">Ready to watch? Enter your email to create or restart your membership.</p>
+        <h3 class="landing" id="sub-title">Watch anywhere, anytime.</h3>
+        <p class="landing" id="p">Ready to watch? Explore the movie feed below!</p>
 
       </div>
+
     </div>
+    <div class="spacer"></div>
   </div>
 
   <div class="movie-feed">
+    <!-- <h2 style="font-size: 1.5rem;opacity: 0.5;font-weight: 400;">·&nbsp; Trending Movies &nbsp;·</h2> -->
     <div class="movie-list">
       <div class="movie" *ngFor="let movie of movies" (click)="viewMovieDetail(movie.id)">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
