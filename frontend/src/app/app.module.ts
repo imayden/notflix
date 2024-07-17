@@ -18,12 +18,12 @@ import { SignupCreateAccountComponent } from './components/signup-create-account
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { HomeHeadingComponent } from './components/home-heading/home-heading.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { AuthService } from './services/auth.service';
 import { CoreModule } from './core/core.module';
 import { DecimalPipe, DatePipe } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,8 +38,7 @@ import { DecimalPipe, DatePipe } from '@angular/common';
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
-    MovieDetailComponent,
-    HomeHeadingComponent
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +46,7 @@ import { DecimalPipe, DatePipe } from '@angular/common';
     HttpClientModule,
     ReactiveFormsModule,
     YouTubePlayerModule,
+    SharedModule,
     CoreModule
   ],
   providers: [

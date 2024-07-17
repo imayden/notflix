@@ -46,10 +46,10 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-ASFWULK7.js";
+import "./chunk-KT3RQDJZ.js";
 import {
   fromEventPattern
 } from "./chunk-LMFWYZLC.js";
-import "./chunk-KT3RQDJZ.js";
 import {
   BehaviorSubject,
   Observable,

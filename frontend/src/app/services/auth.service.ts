@@ -5,7 +5,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, of, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { AppUserAuth } from '../interfaces/user-auth';
-import { AppUserRegister } from '../interfaces/user-signup';
 import { AuthDto } from '../interfaces/auth-dto';
 import { AUTHSERVER } from '../core/core.module';
 import { isPlatformBrowser } from '@angular/common';
@@ -14,15 +13,13 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
+  private token: string | null = null;
+  private username: string | null = null;
   private jwtHelper = new JwtHelperService();
   userSignal = signal<AppUserAuth>({});
 
-  // private appUserRegister = new AppUserRegister();
   private refreshTokenTimeout!: ReturnType<typeof setTimeout>;
 
-  // get appNewUser(): AppUserRegister {
-  //   return this.appUserRegister;
-  // }
 
   private isBrowser!: boolean;
   private readonly platform = inject(PLATFORM_ID);
@@ -33,6 +30,30 @@ export class AuthService {
     @Inject(AUTHSERVER) public readonly authServerPath: string,
   ) {
     this.isBrowser = isPlatformBrowser(this.platform);
+    if (this.isBrowser) {
+      this.token = localStorage.getItem('access_token');
+      this.username = localStorage.getItem('username');
+    }
+  }
+
+  /* Auth Guard */ 
+  isAuthenticated(): boolean {
+    const token = this.isBrowser ? localStorage.getItem('access_token') : null;
+    return token ? !this.jwtHelper.isTokenExpired(token) : false;
+  }
+
+  getUsername(): string | null {
+    return this.username;
+  }
+  
+  logout(): void {
+    if (this.isBrowser) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('username');
+      this.token = null;
+      this.username = null;
+      this.router.navigate(['/signin']);
+    }
   }
 
   /* SignIn */
@@ -49,11 +70,6 @@ export class AuthService {
       );
   }
   
-
-  isAuthenticated(): boolean {
-    const token = this.isBrowser ? localStorage.getItem('access_token') : null;
-    return token ? !this.jwtHelper.isTokenExpired(token) : false;
-  }
 
   /* SignUp */
   signup(userData: { email: string; username: string; password: string; tmdb_key: string; role: string }): Observable<AuthDto> {

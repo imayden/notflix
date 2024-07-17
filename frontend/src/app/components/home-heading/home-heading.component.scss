@@ -66,6 +66,22 @@
     margin-inline: 1rem;
 }
 
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn#logout{
+    color: rgba(225, 225, 225, 0.5);
+    background-color: rgba(40, 40, 40, 0.5);
+    backdrop-filter: blur(5px);
+    font-weight: 400;
+}
+
+.btn#logout:hover{
+    color: rgba(225, 225, 225, 1);
+    background-color: rgba(66, 66, 66, 0.5);
+}
+
 .btn#signin {
     color: white;
     background-color: rgba(229, 9, 20, 1);
