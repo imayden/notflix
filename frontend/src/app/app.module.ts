@@ -8,7 +8,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { GetStartedComponent } from './components/get-started/get-started.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SignupChoosePlanComponent } from './components/signup-choose-plan/signup-choose-plan.component';
@@ -24,6 +24,10 @@ import { AuthService } from './services/auth.service';
 import { CoreModule } from './core/core.module';
 import { DecimalPipe, DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
+
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +56,8 @@ import { SharedModule } from './shared/shared.module';
   providers: [
     provideClientHydration(),
     AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorFnInterceptor, multi: true },
     DecimalPipe,
     DatePipe
   ],

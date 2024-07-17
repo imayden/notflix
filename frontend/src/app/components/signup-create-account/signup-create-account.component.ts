@@ -21,8 +21,8 @@ export class SignupCreateAccountComponent {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
-      tmdb_key: ['', [Validators.required, Validators.minLength(15)]],
+      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      tmdb_key: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(1000)]],
       role: ['USER', Validators.required]  // Default role as 'USER'
     });
   }

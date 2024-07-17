@@ -43,9 +43,9 @@ export class AuthService {
   }
 
   getUsername(): string | null {
-    console.log(this.username);
     return this.username;
   }
+  
   
   logout(): void {
     if (this.isBrowser) {
