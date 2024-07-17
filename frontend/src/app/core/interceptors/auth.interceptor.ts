@@ -17,16 +17,16 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if (user && user.jwtToken && !isApiUrl) {
       req = req.clone({
-        // setHeaders: { Authorization: `Bearer ${user.jwtToken}` },
         setHeaders: { 
           Authorization: 
           `Bearer ${user.jwtToken}` 
-          // || 
-          // `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjMwNGE1YTMxN2Q1NWU5OWNjMDQyZGI1MGIwM2RhYiIsIm5iZiI6MTcyMDAyMjg4OS43MzkzMDcsInN1YiI6IjY2ODU3NDdiNjNkMGI1ZDdmYTFhNDViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-IDAXqE7eXdh1vfvC2pgnQ-ijEBtk2diNqXxJ3sz6iI` 
+          // || `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjMwNGE1YTMxN2Q1NWU5OWNjMDQyZGI1MGIwM2RhYiIsIm5iZiI6MTcyMDAyMjg4OS43MzkzMDcsInN1YiI6IjY2ODU3NDdiNjNkMGI1ZDdmYTFhNDViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-IDAXqE7eXdh1vfvC2pgnQ-ijEBtk2diNqXxJ3sz6iI` 
         },
 
       });
     }
+
+    console.log('req:', req);
 
     return next.handle(req);
   }
