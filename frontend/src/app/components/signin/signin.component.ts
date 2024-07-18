@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import * as jwt from 'jwt-simple';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-signin',
@@ -15,14 +14,13 @@ export class SigninComponent implements OnInit {
   signinForm!: FormGroup;
   errorMessage: string = '';
   isBrowser!: boolean;
-  private jwtSecret = 'your_jwt_secret';
+  private encryptionKey = 'your_encryption_key';
   
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     @Inject(PLATFORM_ID) platformId: Object,
-    // private jwtHelper: JwtHelperService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -36,19 +34,27 @@ export class SigninComponent implements OnInit {
 
     if (this.isBrowser) {
       const storedEmail = localStorage.getItem('email');
-
       const storedPassword = localStorage.getItem('password'); 
-      
+
       if (storedEmail && storedPassword) {
-        // const decodedPassword = jwt.decode(storedPassword, this.jwtSecret);
+        const decryptedPassword = this.decryptPassword(storedPassword);
 
         this.signinForm.patchValue({
           email: storedEmail,
-          password: storedPassword,
+          password: decryptedPassword,
           rememberMe: true
         });
       }
     }
+  }
+
+  private encryptPassword(password: string): string {
+    return CryptoJS.AES.encrypt(password, this.encryptionKey).toString();
+  }
+
+  private decryptPassword(encryptedPassword: string): string {
+    const bytes = CryptoJS.AES.decrypt(encryptedPassword, this.encryptionKey);
+    return bytes.toString(CryptoJS.enc.Utf8);
   }
 
   signin() {
@@ -64,18 +70,13 @@ export class SigninComponent implements OnInit {
       () => {
         if(this.isBrowser) {
           if(rememberMe) {
+            const encryptedPassword = this.encryptPassword(password);
             localStorage.setItem('email', email);
-
-            // const encodedPassword = jwt.encode(password, this.jwtSecret);
-            // localStorage.setItem('password', encodedPassword);
-
-            localStorage.setItem('password', password);
+            localStorage.setItem('password', encryptedPassword);
           } else {
             localStorage.removeItem('email');
             localStorage.removeItem('password');
           }
-          sessionStorage.setItem('email', email);
-          sessionStorage.setItem('password', password);
         }
         this.router.navigate(['/home']);
       },
@@ -84,4 +85,6 @@ export class SigninComponent implements OnInit {
       }
     );
   }
+
+
 }
