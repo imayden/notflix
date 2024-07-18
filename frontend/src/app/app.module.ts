@@ -29,6 +29,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoadingComponent } from './components/loading/loading.component';
 // import { appInitializer } from './core/app.initializer';
 
 
@@ -45,7 +46,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     SignupChooserightPlanComponent,
     SignupFinishSetupComponent,
     SignupCreateAccountComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

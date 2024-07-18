@@ -96,3 +96,10 @@
         padding-inline: 0.5rem;
     }
 }
+
+:host {
+    display: block;
+    position: relative;
+    min-height: 100vh;
+  }
+  

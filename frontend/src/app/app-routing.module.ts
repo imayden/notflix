@@ -6,6 +6,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { authGuard } from './core/guards/auth.guard';
 import { MovieDetailResolver } from './core/resolvers/movie-detail.resolver';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'loading', component: LoadingComponent },
   { path: '**', redirectTo: '/' }
 ];
 
