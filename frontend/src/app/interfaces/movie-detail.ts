@@ -10,4 +10,3 @@ export interface MovieDetail {
     trailerUrl?: string;
     cast?: { name: string; character: string; profile_path: string; }[];
   }
-  

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +28,8 @@ import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
 
-import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
+// import { appInitializer } from './core/app.initializer';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorFnInterceptor, multi: true },
+    // { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthService]},
     DecimalPipe,
     JwtHelperService,
     DatePipe

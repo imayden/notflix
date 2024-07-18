@@ -4,24 +4,21 @@ import { MovieDetailService } from '../../services/movie-detail.service';
 import { MovieDetail } from '../../interfaces/movie-detail';
 
 @Component({
-  selector: 'app-movie-detail',
+  selector: 'app-movie-detail', 
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
   movie: MovieDetail | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private movieDetailService: MovieDetailService
-  ) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const movieId = Number(this.route.snapshot.paramMap.get('id'));
-    this.movieDetailService.getMovieDetail(movieId).subscribe((movie: MovieDetail) => {
-      this.movie = movie;
+    this.route.data.subscribe((data: any) => {
+      this.movie = data.movie;
     });
   }
+
 
   extractVideoId(url: string): string {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;

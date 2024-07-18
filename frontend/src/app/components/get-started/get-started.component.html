@@ -1,6 +1,20 @@
 <div class="landing" id="register">
-    <input class="landing" id="input" placeholder="Email address"  autocomplete="email" minlength="5" maxlength="50" type="email" name="email">
+
+    <form class="landing" id="register" [formGroup]="getStartedForm" (ngSubmit)="onSubmit()">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <input class="landing" id="input" formControlName="email" placeholder="Email address" autocomplete="email"
+                minlength="5" maxlength="50" type="email" name="email">
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error" style="color: red;">
+                *Please enter a valid email!
+            </div>
+        </div>
+        <button class="landing" id="btn" type="submit">
+            Get Started &gt;
+        </button>
+    </form>
+
+    <!-- <input class="landing" id="input" placeholder="Email address" required autocomplete="email" minlength="5" maxlength="50" type="email" name="email">
     <button class="landing" id="btn" >
         <a target="_blank" href="/signup" style="text-decoration: none;color:white">Get Started &gt;</a>
-    </button>
+    </button> -->
 </div>

@@ -115,6 +115,8 @@ export class AuthService {
     clearTimeout(this.refreshTokenTimeout);
   }
 
+  
+
   refreshToken(): Observable<AuthDto | string> {
     let token;
     if (this.isBrowser) token = localStorage.getItem('access_token');
@@ -122,7 +124,7 @@ export class AuthService {
       this.router.navigate(['/']);
       return of('err');
     }
-    const headers = new HttpHeaders().set('Authorization', token);
+    const headers = new HttpHeaders().set('Authorization', token); 
     return this.http.get<AuthDto>(`${this.authServerPath}/auth/refresh-token`, { headers })
       .pipe(
         tap(({ accessToken, role }: AuthDto) => {

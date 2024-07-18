@@ -1,11 +1,13 @@
 import { AuthService } from "../services/auth.service";
-import { Observable } from "rxjs";
+import { finalize } from 'rxjs/operators';
 
 export const appInitializer = (authService: AuthService) => {
   console.log('this is Initialization');
   return () =>
-    new Promise((resolve) => {
+    new Promise<void>((resolve) => {
       // attempt to refresh token on app start up to auto authenticate
-    //   authService.refreshToken().subscribe().add(resolve);
+      authService.refreshToken().pipe(
+        finalize(() => resolve())
+      ).subscribe();
     });
 };
