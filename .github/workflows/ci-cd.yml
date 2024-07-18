@@ -25,7 +25,7 @@ jobs:
 
     - name: Build and push Docker images
       run: |
-        cd notflix/frontend
+        cd frontend
         docker build -t gcr.io/${{ secrets.GCP_PROJECT }}/notflix-frontend .
         docker push gcr.io/${{ secrets.GCP_PROJECT }}/notflix-frontend
         cd ../backend
