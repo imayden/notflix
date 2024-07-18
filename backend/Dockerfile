@@ -1,5 +1,5 @@
 # Use the official Node.js mirror as the basic mirror
-FROM node:14
+FROM node:18
 
 # Work directory
 WORKDIR /app
