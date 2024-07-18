@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import * as jwt from 'jwt-simple';
 
 @Component({
   selector: 'app-signin',
@@ -13,12 +15,14 @@ export class SigninComponent implements OnInit {
   signinForm!: FormGroup;
   errorMessage: string = '';
   isBrowser!: boolean;
-
+  private jwtSecret = 'your_jwt_secret';
+  
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object,
+    // private jwtHelper: JwtHelperService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -32,9 +36,12 @@ export class SigninComponent implements OnInit {
 
     if (this.isBrowser) {
       const storedEmail = localStorage.getItem('email');
-      const storedPassword = localStorage.getItem('password');
 
+      const storedPassword = localStorage.getItem('password'); 
+      
       if (storedEmail && storedPassword) {
+        // const decodedPassword = jwt.decode(storedPassword, this.jwtSecret);
+
         this.signinForm.patchValue({
           email: storedEmail,
           password: storedPassword,
@@ -58,6 +65,10 @@ export class SigninComponent implements OnInit {
         if(this.isBrowser) {
           if(rememberMe) {
             localStorage.setItem('email', email);
+
+            // const encodedPassword = jwt.encode(password, this.jwtSecret);
+            // localStorage.setItem('password', encodedPassword);
+
             localStorage.setItem('password', password);
           } else {
             localStorage.removeItem('email');

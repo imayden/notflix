@@ -91,6 +91,7 @@ export class AuthService {
   private setUserValueByToken = ({ accessToken, role }: AuthDto) => {
     if (this.isBrowser) {
       localStorage.setItem('access_token', accessToken);
+      // no need to set everything to localStorage, only jwttoken
       const { id, username, email, exp } = this.jwtHelper.decodeToken(accessToken);
       localStorage.setItem('username', username);  
       this.username = username;

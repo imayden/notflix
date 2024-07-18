@@ -28,6 +28,8 @@ import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
 
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorFnInterceptor, multi: true },
     DecimalPipe,
+    JwtHelperService,
     DatePipe
   ],
   bootstrap: [AppComponent]

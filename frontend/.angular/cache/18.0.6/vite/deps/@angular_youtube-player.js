@@ -1,6 +1,6 @@
 import {
   isPlatformBrowser
-} from "./chunk-55JG6BXV.js";
+} from "./chunk-EV66KBFN.js";
 import {
   CSP_NONCE,
   ChangeDetectionStrategy,
@@ -45,21 +45,23 @@ import {
   ɵɵstyleProp,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-ASFWULK7.js";
-import "./chunk-KT3RQDJZ.js";
+} from "./chunk-D5XPUL7R.js";
+import "./chunk-MJQNUHK2.js";
 import {
   fromEventPattern
-} from "./chunk-LMFWYZLC.js";
+} from "./chunk-MOY5LPCH.js";
 import {
   BehaviorSubject,
   Observable,
   Subject,
-  __spreadProps,
-  __spreadValues,
   of,
   switchMap,
   takeUntil
-} from "./chunk-RVQ3RH6Y.js";
+} from "./chunk-SAI3DHVA.js";
+import {
+  __spreadProps,
+  __spreadValues
+} from "./chunk-WKYGNSYM.js";
 
 // node_modules/@angular/youtube-player/fesm2022/youtube-player.mjs
 var _c0 = ["youtubeContainer"];

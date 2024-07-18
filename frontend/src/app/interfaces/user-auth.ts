@@ -6,7 +6,7 @@ export interface AppUserAuth {
   jwtToken?: string;
 }
 
-export enum UserRole {
+export enum UserRole { // enum values
   USER = 'USER',
   SUPERUSER = 'SUPERUSER',
   ADMIN = 'ADMIN'
