@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
   page: number = 1;
   loading: boolean = false;
   isBrowser!: boolean;
+
+  heroMovies: Movie[] = [];  // hero-sections
+
+  // cārousel options
+  carouselOptions: OwlOptions = {
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 5
+      }
+    }
+  };
 
   constructor(
     private movieService: MovieService,
@@ -53,6 +77,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.movieService.getMovies(this.page).subscribe( 
       (response) => {
         this.movies = [...this.movies, ...response.results]; 
+
+        if (this.heroMovies.length < 5) {
+          const moviesToAdd = response.results.slice(0, 5 - this.heroMovies.length);
+          this.heroMovies = [...this.heroMovies, ...moviesToAdd];
+        }
+        
         this.page++;
         this.loading = false;
       },

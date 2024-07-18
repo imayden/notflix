@@ -30,7 +30,8 @@ import { ErrorFnInterceptor } from './core/interceptors/error-fn.interceptor';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoadingComponent } from './components/loading/loading.component';
-// import { appInitializer } from './core/app.initializer';
+import { CarouselModule } from 'ngx-owl-carousel-o'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -56,7 +57,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     ReactiveFormsModule,
     YouTubePlayerModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),
