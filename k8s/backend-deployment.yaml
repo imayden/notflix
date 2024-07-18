@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notflix-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notflix-backend
+  template:
+    metadata:
+      labels:
+        app: notflix-backend
+    spec:
+      containers:
+      - name: notflix-backend
+        image: gcr.io/teak-instrument-429819-b8/notflix-backend
+        ports:
+        - containerPort: 4231
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notflix-backend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 4231
+    targetPort: 4231
+  selector:
+    app: notflix-backend
