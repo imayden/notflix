@@ -15,7 +15,7 @@ const routes: Routes = [
   // { path: 'movie/:id', component: MovieDetailComponent, canActivate: [authGuard] },
   {
     path: 'movie/:id',
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     component: MovieDetailComponent,
     resolve: {
       movie: MovieDetailResolver

@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
         setHeaders: { 
           Authorization: 
           // `Bearer ${user.jwtToken}` || 
-          // Current TMDB API Key is not working, use the TMDB API Read Token instead
+          // The TMDB API Key is not working, use the TMDB API Read Token instead OR it's gonna fail at intercepting the request.
           `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjMwNGE1YTMxN2Q1NWU5OWNjMDQyZGI1MGIwM2RhYiIsIm5iZiI6MTcyMDAyMjg4OS43MzkzMDcsInN1YiI6IjY2ODU3NDdiNjNkMGI1ZDdmYTFhNDViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-IDAXqE7eXdh1vfvC2pgnQ-ijEBtk2diNqXxJ3sz6iI` 
         },
 
