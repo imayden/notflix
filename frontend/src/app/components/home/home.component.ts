@@ -2,8 +2,9 @@ import { Component, OnInit, HostListener, Inject, PLATFORM_ID, AfterViewInit, El
 import { isPlatformBrowser } from '@angular/common';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, Event } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isBrowser!: boolean;
 
   heroMovies: Movie[] = [];  // hero-sections
+
+  // scrollPosition: number = 0;
 
   // cārousel options
   carouselOptions: OwlOptions = {
@@ -47,6 +50,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ){
     this.isBrowser = isPlatformBrowser(platformId);
+
+    // this.router.events.pipe(
+    //   filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd)
+    // ).subscribe((event: NavigationEnd) => {
+    //   if (event.urlAfterRedirects === '/home') {
+    //     setTimeout(() => this.restoreScrollPosition(), 100); 
+    //   }
+    // });
   }
   
   ngOnInit(): void {
@@ -104,10 +115,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
   viewMovieDetail(movieId: number): void {
+    // this.scrollPosition = window.scrollY;
+    // sessionStorage.setItem('scrollPosition', this.scrollPosition.toString()); 
+
     const url = this.router.serializeUrl(
       this.router.createUrlTree(['/movie', movieId])
     );
     window.open(url, '_blank');
+    
+    // this.router.navigate(['/movie', movieId]); 
   }
+
+
+  // restoreScrollPosition(): void {
+  //   const savedPosition = sessionStorage.getItem('scrollPosition'); 
+  //   if (savedPosition) {
+  //     window.scrollTo(0, parseInt(savedPosition, 10));
+  //   }
+  // }
 
 }

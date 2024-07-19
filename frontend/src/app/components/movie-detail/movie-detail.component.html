@@ -1,3 +1,4 @@
+
 <div class="heading">
   <img *ngIf="movie" class="backdrop" [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path"
     alt="{{ movie.title }}">
@@ -15,10 +16,15 @@
       <!-- movie-overview -->
       <div class="detail-block" id="movie-overview">
         <h1 class="h1-title">{{ movie.title }}</h1>
-        <p class="text">
-          <span class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }} / 10</span>
-          <span class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</span>
-        </p>
+        <div style="display: flex; flex-direction: row; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+          <div class="movie-label" id="vote">{{ movie.vote_average | number:'1.1-1' }} / 10</div>
+          <div class="movie-label" id="year">{{ movie.release_date | date: 'yyyy' }}</div>
+          <div class="movie-label" id="year">{{ movie.runtime}} Minutes</div>
+        <!-- </div><div style="display: flex; flex-direction: row; gap: 0.25rem; flex-wrap: wrap; margin-block: 0.5rem;"> -->
+          <div *ngFor="let genre of movie.genres" class="genre">
+            <div class="movie-label" id="genre">{{ genre.name }}</div>
+          </div>
+        </div>
         <p class="overview">{{ movie.overview }}</p>
       </div>
 
