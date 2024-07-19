@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o'; 
+import { Title } from '@angular/platform-browser';  
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   ],
   providers: [
     DecimalPipe,
-    DatePipe
+    DatePipe,
+    Title
   ],
   exports: [
     HomeComponent

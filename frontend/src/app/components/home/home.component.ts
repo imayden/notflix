@@ -4,7 +4,7 @@ import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
 import { Router, NavigationEnd, Event } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { filter } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';  
 
 @Component({
   selector: 'app-home',
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   page: number = 1;
   loading: boolean = false;
   isBrowser!: boolean;
+
+  
 
   heroMovies: Movie[] = [];  // hero-sections
 
@@ -47,7 +49,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private movieService: MovieService,
     private router: Router, 
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private titleService: Title
   ){
     this.isBrowser = isPlatformBrowser(platformId);
 
@@ -64,6 +67,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if(this.isBrowser) {
         this.loadMovies();
       }
+      this.titleService.setTitle(`Trending Movies - Notflix`);
   }
 
   ngAfterViewInit(): void {

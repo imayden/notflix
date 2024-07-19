@@ -4,6 +4,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import * as CryptoJS from 'crypto-js';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signin',
@@ -21,6 +22,7 @@ export class SigninComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     @Inject(PLATFORM_ID) platformId: Object,
+    private titleService: Title
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -46,6 +48,8 @@ export class SigninComponent implements OnInit {
         });
       }
     }
+
+    this.titleService.setTitle(`Sign In - Notflix`);
   }
 
   private encryptPassword(password: string): string {

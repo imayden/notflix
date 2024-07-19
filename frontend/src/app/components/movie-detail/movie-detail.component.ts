@@ -26,7 +26,7 @@ export class MovieDetailComponent implements OnInit {
     const movieId = Number(this.route.snapshot.paramMap.get('id'));
     this.movieDetailService.getMovieDetail(movieId).subscribe((movie: MovieDetail) => {
       this.movie = movie;
-      this.titleService.setTitle(`Notflix - ${movie.title}`);  
+      this.titleService.setTitle(`${movie.title} - Notflix`);  
     });
   }
 
